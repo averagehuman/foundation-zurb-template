@@ -19,7 +19,7 @@
     <div class="row column">
         <div class="top-bar">
             <div class="top-bar-left">
-            <h5 class="title1"><a href="/">Zurb <span class="title2">Foundation</span></a></h5>
+            <h5 class="title1"><a href="/">Zurb <small class="title2">Foundation</small></a></h5>
             </div>
         </div>
     </div>
@@ -27,15 +27,12 @@
 <div class="site-subheader" data-sticky-container>
     <div class="site-search sticky" data-sticky data-margin-top="0" data-anchor="frontispiece">
         <div class="row">
-            <div class="small-10 small-centered medium-8 medium-centered columns">
+            <div class="small-12 small-centered medium-9 medium-centered large-7 large-centered columns">
                 <form id="search-form" method="GET" action="{{config.ES_ENDPOINT}}">
-                    <div class="row">
-                        <div class="small-12 medium-10 columns text-center">
-                    <input id="search-text" type="search" name="q" autofocus maxlength="50" />
-                        </div>
-                        <div class="small-12 medium-2 columns text-center search-btn-cell">
-                    <button id="search-btn" class="button" type="submit">Search</button>
-                        </div>
+                    <div class="search-form-input input-group">
+                    <input class="input-group-field" type="search" name="q" autofocus maxlength="50" placeholder="Search..." />
+                    <a class="input-group-button button" type="submit"><i class="fa fa-search"></i></a>
+                    </div>
                 </form>
             </div>
         </div>

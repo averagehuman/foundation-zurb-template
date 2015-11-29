@@ -39,8 +39,13 @@
 @include motion-ui-animations;
 
 .site-header {
-    background-color: firebrick;
+    background-color: #23cf9c;
+    background-color: silver;
 }
+.site-header .title1 a,  .site-header .title1 a:visited {
+    color: white;
+}
+
 .site-subheader, .site-search {
     background: #222;
     width: 100%;
@@ -48,37 +53,23 @@
 .site-search {
 }
 
-section:first-of-type {
-    padding-top: 118px;
+.search-form-input {
+    margin: 5px;
+}
+.search-form-input input {
+    font-size: 1.3rem;
+    color: #6a6a6a;
+    padding-right: 44px;
 }
 
-#search-text {
-    font-size: 1.5rem;
-    margin: 5px 0 5px;
+.search-form-input .button {
+    font-size: 1.3rem;
+    text-align:center;
+    position: relative;
+    left: -44px;
+    background: transparent;
     color: #6a6a6a;
 }
-
-#search-btn {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    @include button-style(#ffae00, #efca00, #fff);
-    margin-top: 5px;
-    padding: 6px 12px;
-    width: 100%;
-    min-width: 100px;
+section:first-of-type {
+    padding-top: 24px;
 }
-.search-btn-cell {
-}
-/*
-#search-btn {
-    display: inline;
-    font-size: 24px;
-    margin: 0;
-    margin-left: -4px;
-    padding: 5px;
-    position: relative;
-    left: -34px;
-    background: transparent;
-    color: #4e4e4e;
-}
-*/
