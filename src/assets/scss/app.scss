@@ -11,13 +11,11 @@
 @include foundation-forms;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
-@include foundation-accordion;
 @include foundation-badge;
 @include foundation-breadcrumbs;
 @include foundation-button-group;
 @include foundation-callout;
 @include foundation-close-button;
-@include foundation-drilldown-menu;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
 @include foundation-flex-video;
@@ -27,8 +25,6 @@
 @include foundation-off-canvas;
 @include foundation-orbit;
 @include foundation-pagination;
-@include foundation-progress-bar;
-@include foundation-slider;
 @include foundation-sticky;
 @include foundation-reveal;
 @include foundation-switch;
@@ -41,3 +37,48 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+.site-header {
+    background-color: firebrick;
+}
+.site-subheader, .site-search {
+    background: #222;
+    width: 100%;
+}
+.site-search {
+}
+
+section:first-of-type {
+    padding-top: 118px;
+}
+
+#search-text {
+    font-size: 1.5rem;
+    margin: 5px 0 5px;
+    color: #6a6a6a;
+}
+
+#search-btn {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    @include button-style(#ffae00, #efca00, #fff);
+    margin-top: 5px;
+    padding: 6px 12px;
+    width: 100%;
+    min-width: 100px;
+}
+.search-btn-cell {
+}
+/*
+#search-btn {
+    display: inline;
+    font-size: 24px;
+    margin: 0;
+    margin-left: -4px;
+    padding: 5px;
+    position: relative;
+    left: -34px;
+    background: transparent;
+    color: #4e4e4e;
+}
+*/
