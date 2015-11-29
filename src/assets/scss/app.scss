@@ -41,20 +41,24 @@
 .site-header {
     background-color: #23cf9c;
     background-color: silver;
+    background-color: #222;
 }
 .site-header .title1 a,  .site-header .title1 a:visited {
-    color: white;
+    color: #ae4300;
 }
 
 .site-subheader, .site-search {
     background: #222;
     width: 100%;
+    color: white;
+    border-bottom: solid 2px #222;
 }
-.site-search {
+.site-subheader {
 }
 
 .search-form-input {
-    margin: 5px;
+    margin: 5px 0;
+    width: 110%;
 }
 .search-form-input input {
     font-size: 1.3rem;
