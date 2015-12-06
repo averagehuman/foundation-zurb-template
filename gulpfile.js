@@ -1,6 +1,5 @@
 var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
-var browser  = require('browser-sync');
 var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
@@ -123,17 +122,23 @@ gulp.task('build', function(done) {
   sequence('clean', ['sass', 'javascript', 'images', 'copy'], done);
 });
 
-// Start a server with LiveReload to preview the site in
+// Starts a test server, which you can view at http://localhost:8079
 gulp.task('server', ['build'], function() {
-  browser.init({
-    server: 'dist', port: PORT
-  });
+  gulp.src('dist')
+    .pipe($.webserver({
+      port: 8079,
+      host: 'localhost',
+      fallback: 'index.html',
+      livereload: true,
+      open: false
+    }))
+  ;
 });
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default', ['build', 'server'], function() {
-  gulp.watch(PATHS.assets, ['copy', browser.reload]);
-  gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
-  gulp.watch(['src/assets/js/**/*.js'], ['javascript', browser.reload]);
-  gulp.watch(['src/assets/img/**/*'], ['images', browser.reload]);
+  gulp.watch(PATHS.assets, ['copy']);
+  gulp.watch(['src/assets/scss/**/*.scss'], ['sass']);
+  gulp.watch(['src/assets/js/**/*.js'], ['javascript']);
+  gulp.watch(['src/assets/img/**/*'], ['images']);
 });
