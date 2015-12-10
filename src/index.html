@@ -15,25 +15,23 @@
 </head>
 <body class="">
 
-<div class="site-subheader" data-sticky-container>
-    <div class="site-search sticky" data-sticky data-margin-top="0" data-anchor="frontispiece">
-        <div class="row">
-            <div class="medium-5 columns hide-for-small-only">
-                <h4 class="brand-title"><a href="/">Zurb Foundation</a></h4>
-            </div>
-            <div class="small-12 medium-7 columns">
-                <form id="search-form" method="GET" action="{{config.ES_ENDPOINT}}">
-                    <div class="search-form-input input-group">
-                    <input class="input-group-field" type="search" name="q" autofocus maxlength="50" placeholder="Search..." />
-                    <a class="input-group-button button" type="submit"><i class="fa fa-search"></i></a>
-                    </div>
-                </form>
-            </div>
+<nav class="site-nav">
+    <div class="row">
+        <div class="medium-5 columns hide-for-small-only">
+            <h4 class="brand-title"><a href="/">Zurb Foundation</a></h4>
+        </div>
+        <div class="small-12 medium-7 columns">
+            <form id="search-form" method="GET" action="{{config.ES_ENDPOINT}}">
+                <div class="search-form-input input-group">
+                <input class="input-group-field" type="search" name="q" autofocus maxlength="50" placeholder="Search..." />
+                <a class="input-group-button button" type="submit"><i class="fa fa-search"></i></a>
+                </div>
+            </form>
         </div>
     </div>
-</div>
+</nav>
 
-<section id="frontispiece">
+<section class="frontispiece">
 
     <div class="row column">
     <p>
@@ -117,7 +115,7 @@
 <script>
     $(document).ready(function() {
         $('body').backstretch([
-            '/assets/img/bg2.jpg'
+            '/assets/img/coffee.jpg'
         ]);
     });
 </script>

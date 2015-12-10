@@ -38,23 +38,23 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-.site-header {
-    background-color: #23cf9c;
-    background-color: silver;
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
     background-color: #222;
-    background-color: #e84604;
-}
-.brand-title a,  .brand-titlw a:visited {
-    color: #222;
 }
 
-.site-subheader, .site-search {
-    background-color: #e84604;
-    width: 100%;
-    color: white;
-    border-bottom: solid 2px #222;
+.brand-title {
+    padding-top: 6px;
 }
-.site-subheader {
+
+.brand-title a,  .brand-title h:visited {
+    color: #ffffff;
 }
 
 .search-form-input {
@@ -75,6 +75,12 @@
     background: transparent;
     color: #6a6a6a;
 }
+
 section:first-of-type {
-    padding-top: 24px;
+    padding-top: 74px;
+}
+.frontispiece p {
+    color: white;
+    background: rgba(30, 30, 30, 0.6);
+    padding: 10px;
 }
