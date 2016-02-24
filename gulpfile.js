@@ -116,7 +116,6 @@ gulp.task('images', function() {
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
     .pipe(gulp.dest('dist/assets/img'))
-    .on('finish', browser.reload);
 });
 
 // Build the "dist" folder by running all of the above tasks
