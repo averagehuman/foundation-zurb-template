@@ -17,7 +17,7 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 var PATHS = {
   assets: [
     'src/**/*',
-    '!src/assets/{!img,js,scss}/**/*',
+    '!src/assets/{img,js,scss}/**/*',
     '!src/*~',
     '!src/*.swp'
   ],
@@ -45,7 +45,7 @@ var PATHS = {
     'bower_components/foundation-sites/js/foundation.tabs.js',
     'bower_components/foundation-sites/js/foundation.toggler.js',
     'bower_components/foundation-sites/js/foundation.tooltip.js',
-    'src/assets/js/!(app.js)**/*.js',
+    'src/assets/js/**/!(app).js',
     'src/assets/js/app.js'
   ]
 };
@@ -59,7 +59,7 @@ gulp.task('clean', function(done) {
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
-  gulp.src(PATHS.assets)
+  return gulp.src(PATHS.assets)
     .pipe(gulp.dest('dist'));
 });
 
@@ -69,7 +69,7 @@ gulp.task('sass', function() {
   var uncss = $.if(isProduction, $.uncss({
     html: ['src/**/*.html'],
     ignore: [
-      new RegExp('^meta\..*'),
+      new RegExp('.foundation-mq'),
       new RegExp('^\.is-.*')
     ]
   }));
@@ -88,7 +88,7 @@ gulp.task('sass', function() {
     .pipe(uncss)
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'))
 });
 
 // Combine JavaScript into one file
@@ -102,6 +102,7 @@ gulp.task('javascript', function() {
   return gulp.src(PATHS.javascript)
     .pipe($.concat('app.js'))
     .pipe(uglify)
+    .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe(gulp.dest('dist/assets/js'));
 });
 
@@ -114,7 +115,8 @@ gulp.task('images', function() {
 
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
-    .pipe(gulp.dest('dist/assets/img'));
+    .pipe(gulp.dest('dist/assets/img'))
+    .on('finish', browser.reload);
 });
 
 // Build the "dist" folder by running all of the above tasks
